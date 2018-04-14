@@ -1,15 +1,33 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import TodoButton from './TodoButton'
  
-const Todo = ({ todo }) => (
+const Todo = ({ todo, deleteTodo, toggleComplete }) => (
   <View style={styles.todoContainer}>
     <Text style={styles.todoText}>
       {todo.title}
     </Text>
+    <View style={styles.buttons}>
+      <TodoButton 
+        name='Done'
+        complete={todo.complete}
+        onPress={() => deleteTodo(todo.todoIndex)}
+      />
+      <TodoButton 
+        name='Delete'
+        onPress={() => toggleComplete(todo.todoIndex)}
+      />
+    </View>
   </View>
 )
  
 const styles = StyleSheet.create({
+  buttons: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
   todoContainer: {
     marginLeft: 20,
     marginRight: 20,
