@@ -11,11 +11,11 @@ const Todo = ({ todo, deleteTodo, toggleComplete }) => (
       <TodoButton 
         name='Done'
         complete={todo.complete}
-        onPress={() => deleteTodo(todo.todoIndex)}
+        onPress={() => toggleComplete(todo.todoIndex)}
       />
       <TodoButton 
         name='Delete'
-        onPress={() => toggleComplete(todo.todoIndex)}
+        onPress={() => deleteTodo(todo.todoIndex)}
       />
     </View>
   </View>
